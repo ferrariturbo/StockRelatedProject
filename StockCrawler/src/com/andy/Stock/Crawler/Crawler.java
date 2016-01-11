@@ -42,14 +42,18 @@ public class Crawler {
 		changeValue = doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(1).text().substring(0, 6);
 		changePercent = doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(1).text().substring(8, 15);
 		high = Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(4).text());
-		//low = Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(12).text());
+		String lowTemp = doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(11).text();
+		if(lowTemp==null||"".equals(lowTemp)){
+			low = Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(12).text());
+		}
+		else low = Float.parseFloat(lowTemp);
 		//for(Element d : elem){a
 		//}
-		System.out.println("Title is:" +changeValue); 
-		System.out.println("Title is:" +changePercent); 
-		System.out.println("Title is:" +low); 
-		System.out.println("Title is:" +high); 
-		System.out.println("Title is:" +test); 
+		System.out.println("Change Value is:" +changeValue); 
+		System.out.println("Change Percentage is:" +changePercent); 
+		System.out.println("Low is:" +low); 
+		System.out.println("High is:" +high); 
+		System.out.println("Real time price is:" +realTimePrice); 
 		
 
 		
